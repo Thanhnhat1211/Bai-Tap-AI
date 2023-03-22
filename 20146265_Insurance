@@ -1,0 +1,16 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+url = 'insurance.csv'
+data = pd.read_csv(url)
+data.sample(5)
+data.info()
+print(data['sex'].value_counts())
+sns.countplot(x='sex',data=data)
+print(data['smoker'].value_counts())
+sns.countplot(x='smoker',data=data)
+print(data['region'].value_counts())
+sns.countplot(x='region',data=data)
+corr=data.corr()
+sns.heatmap(corr,cmap='Wistia',annot=True)
